@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Configuration
+
 public protocol ViewState: Hashable {}
 
 public enum AnimationConfig {
@@ -26,18 +28,19 @@ public extension AnimationNode {
     }
     
     public static func ==(lhs: AnimationNode, rhs: AnimationNode) -> Bool {
-        return lhs == rhs
+        return lhs.state == rhs.state
     }
 }
+
+// MARK: - State Machine
 
 public struct ViewMachine<StateType: ViewState> {
     
     // MARK: - Enums
     
     public enum VMError: Error {
-        case unknownState
-        case unsetRootState
-        case unsetTransition
+        case unknownState(StateType)
+        case unsetTransition(StateType)
     }
     
     // MARK: - Typealiases
@@ -52,16 +55,14 @@ public struct ViewMachine<StateType: ViewState> {
     // MARK: - Properties
     
     var states: Graph<AnimationNode<StateType>>
-    var currentState: StateType
-    
-    var rootState: Node<AnimationNode<StateType>>?
+    var rootState: Node<AnimationNode<StateType>>
     
     // MARK: - Constructor
     
-    public init(animationConfig: AnimationConfig, startingAt state: StateType) {
+    public init(animationConfig: AnimationConfig, startingAt state: StateType, withTransition transition: @escaping ViewMachine.Transition) {
         self.states = Graph()
         self.animationConfig = animationConfig
-        self.currentState = state
+        self.rootState = states.createNode(with: AnimationNode(state: state, transition: transition))
     }
     
     // MARK: - Methods
@@ -74,7 +75,7 @@ public struct ViewMachine<StateType: ViewState> {
     @discardableResult
     public mutating func set(next state: StateType, from otherState: StateType, with transition: @escaping ViewMachine.Transition) throws -> ViewMachine {
         guard let oldNode = states.node(where: { $0.data.state == otherState }) else {
-            throw VMError.unsetRootState
+            throw VMError.unknownState(otherState)
         }
         let newNode = states.createNode(with: AnimationNode(state: state, transition: transition))
         states.addEdge(from: oldNode, to: newNode)
@@ -88,16 +89,13 @@ public struct ViewMachine<StateType: ViewState> {
     
     @discardableResult
     public func reset() throws -> ViewMachine {
-        guard let root = rootState else {
-            throw VMError.unsetRootState
-        }
-        return try transition(to: root.data.state)
+        return try transition(to: rootState.data.state)
     }
     
     @discardableResult
     public func transition(to state: StateType, with config: AnimationConfig? = nil, whenComplete complete: AnimationCompletion? = nil) throws -> ViewMachine {
         guard let node = states.node(where: { $0.data.state == state }) else {
-            throw VMError.unknownState
+            throw VMError.unknownState(state)
         }
         return try transition(to: node.data,
                               with: config,
