@@ -10,6 +10,8 @@
 		89ACB37020520CAE004BB21C /* AnimState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89ACB36620520CAE004BB21C /* AnimState.framework */; };
 		89ACB37520520CAE004BB21C /* AnimStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB37420520CAE004BB21C /* AnimStateTests.swift */; };
 		89ACB37720520CAE004BB21C /* AnimState.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ACB36920520CAE004BB21C /* AnimState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89ACB38120520CB7004BB21C /* AnimState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB38020520CB7004BB21C /* AnimState.swift */; };
+		89ACB3832052183B004BB21C /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB3822052183B004BB21C /* Graph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		89ACB36F20520CAE004BB21C /* AnimStateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimStateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACB37420520CAE004BB21C /* AnimStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimStateTests.swift; sourceTree = "<group>"; };
 		89ACB37620520CAE004BB21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89ACB38020520CB7004BB21C /* AnimState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimState.swift; sourceTree = "<group>"; };
+		89ACB3822052183B004BB21C /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			children = (
 				89ACB36920520CAE004BB21C /* AnimState.h */,
 				89ACB36A20520CAE004BB21C /* Info.plist */,
+				89ACB38020520CB7004BB21C /* AnimState.swift */,
+				89ACB3822052183B004BB21C /* Graph.swift */,
 			);
 			path = AnimState;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					89ACB36520520CAE004BB21C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					89ACB36E20520CAE004BB21C = {
@@ -196,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89ACB3832052183B004BB21C /* Graph.swift in Sources */,
+				89ACB38120520CB7004BB21C /* AnimState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +343,7 @@
 		89ACB37B20520CAE004BB21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.downey.apps.AnimState;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +366,7 @@
 		89ACB37C20520CAE004BB21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +388,7 @@
 		89ACB37E20520CAE004BB21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z46KU7GJC9;
 				INFOPLIST_FILE = AnimStateTests/Info.plist;
@@ -390,6 +403,7 @@
 		89ACB37F20520CAE004BB21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z46KU7GJC9;
 				INFOPLIST_FILE = AnimStateTests/Info.plist;
