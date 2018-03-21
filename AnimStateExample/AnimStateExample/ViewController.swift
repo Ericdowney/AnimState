@@ -17,7 +17,7 @@ class Box: UIView {
 }
 
 enum TestState: ViewState {
-    case red, yellow, green, blue, purple
+    case red, yellow, green, blue, purple, chainedReset
     
     var next: TestState {
         switch self {
@@ -31,98 +31,102 @@ enum TestState: ViewState {
             return .purple
         case .purple:
             return .red
+        default:
+            return .red
         }
     }
 }
 
 class ViewController: UIViewController {
     
-    var currentState: TestState = .red
+    var viewState: TestState = .red {
+        didSet {
+            _ = try? machine.transition(to: viewState)
+        }
+    }
     
-    var boxes: [Box] = []
-    lazy var machine: ViewMachine<TestState> = {
-        return ViewMachine<TestState>(animationConfig: .spring(duration: 0.4, delay: 0.0, springDamping: 0.75, initialVelocity: 0.1, options: .curveEaseInOut), startingAt: currentState, withTransition: setFramesTo(n: 0))
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        boxes = [
+    lazy var boxes: [Box] = {
+        [
             Box(color: .red, frame: CGRect(x: 10, y: 10, width: view.frame.width - 20, height: 50)),
             Box(color: .yellow, frame: CGRect(x: 10, y: 10, width: view.frame.width - 20, height: 50)),
             Box(color: .green, frame: CGRect(x: 10, y: 10, width: view.frame.width - 20, height: 50)),
             Box(color: .blue, frame: CGRect(x: 10, y: 10, width: view.frame.width - 20, height: 50)),
             Box(color: .purple, frame: CGRect(x: 10, y: 10, width: view.frame.width - 20, height: 50)),
         ]
+    }()
+    lazy var machine: AnimationMachine<TestState> = {
+//        .none
+//        .simple(duration: 0.4, delay: 0.0, options: .curveEaseInOut)
+//        .spring(duration: 0.4, delay: 0.0, springDamping: 0.75, initialVelocity: 0.1, options: .curveEaseInOut)
+        AnimationMachine<TestState>(animationConfig: .spring(duration: 0.4, delay: 0.0, springDamping: 0.75, initialVelocity: 0.1, options: .curveEaseInOut), startingAt: viewState, withTransition: setFramesTo(n: 0))
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         boxes.forEach(view.addSubview)
         
+        machine.reset()
+        machine.addState(.yellow, with: setFramesTo(n: 1))
+        machine.addState(.green, with: setFramesTo(n: 2))
+        machine.addState(.blue, with: setFramesTo(n: 3))
+        machine.addState(.purple, with: setFramesTo(n: 4))
+        machine.addState(.chainedReset, with: setFramesTo(n: 4))
+        
         do {
-            try machine.reset()
-            try machine.set(next: .yellow, from: .red, with: setFramesTo(n: 1))
-            try machine.set(next: .green, from: .yellow, with: setFramesTo(n: 2))
-            try machine.set(next: .blue, from: .green, with: setFramesTo(n: 3))
-            try machine.set(next: .purple, from: .blue, with: setFramesTo(n: 4))
+            try machine.addChain(to: .chainedReset, with: setFramesTo(n: 3))
+            try machine.addChain(to: .chainedReset, with: setFramesTo(n: 2))
+            try machine.addChain(to: .chainedReset, with: setFramesTo(n: 1))
+            try machine.addChain(to: .chainedReset, with: setFramesTo(n: 0))
         }
-        catch {
-            let alert = UIAlertController(title: "Machine Error", message: "Could not setup machine states", preferredStyle: .alert)
-            alert.addAction( UIAlertAction(title: "OK", style: .cancel, handler: nil) )
-            present(alert, animated: true, completion: nil)
-        }
+        catch {}
     }
     
     // MARK: - Methods
     
-    func setFramesTo(n: Int) -> ViewMachine<TestState>.Transition {
-        return {
+    func setFramesTo(n: Int) -> AnimationMachine<TestState>.Transition {
+        return { [unowned self] in
             let box = self.boxes[n]
             for (index, item) in self.boxes.enumerated() {
                 if index < n {
-                    item.frame = CGRect(x: 10, y: 50 + CGFloat(75 * index), width: self.view.frame.width - 20, height: 50.0)
+                    item.frame = CGRect(x: 10, y: 50 + CGFloat(75 * index), width: view.frame.width - 20, height: 50.0)
                 }
                 if index > n {
-                    item.frame = CGRect(x: 10, y: self.view.frame.height + CGFloat(75 * index), width: self.view.frame.width - 20, height: 50.0)
+                    item.frame = CGRect(x: 10, y: view.frame.height + CGFloat(75 * index), width: view.frame.width - 20, height: 50.0)
                 }
             }
-            box.frame = CGRect(x: 10, y: self.view.frame.height - 200, width: self.view.frame.width - 20, height: 100.0)
+            box.frame = CGRect(x: 10, y: view.frame.height - 200, width: view.frame.width - 20, height: 100.0)
         }
     }
     
     // MARK: - Actions
-
+    
     @IBAction func nextState() {
-        do {
-            try machine.transition(to: currentState.next)
-            currentState = currentState.next
-        }
-        catch {}
+        viewState = viewState.next
     }
     
     @IBAction func red() {
-        goTo(state: .red)
+        viewState = .red
     }
     
     @IBAction func yellow() {
-        goTo(state: .yellow)
+        viewState = .yellow
     }
     
     @IBAction func green() {
-        goTo(state: .green)
+        viewState = .green
     }
     
     @IBAction func blue() {
-        goTo(state: .blue)
+        viewState = .blue
     }
     
     @IBAction func purple() {
-        goTo(state: .purple)
+        viewState = .purple
     }
     
-    private func goTo(state: TestState) {
-        do {
-            try machine.transition(to: state)
-            currentState = state
-        }
-        catch {}
+    @IBAction func reset() {
+        viewState = .chainedReset
     }
     
 }

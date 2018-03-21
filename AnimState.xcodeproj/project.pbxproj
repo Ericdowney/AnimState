@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890B2BD72062A63F0016596C /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BD62062A63F0016596C /* AnimationItem.swift */; };
+		890B2BD92062A6580016596C /* AnimationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BD82062A6580016596C /* AnimationConfig.swift */; };
+		890B2BDB2062A6700016596C /* AnimationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BDA2062A6700016596C /* AnimationNode.swift */; };
+		890B2BDD2062A6830016596C /* AnimationStateBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BDC2062A6830016596C /* AnimationStateBag.swift */; };
+		890B2BDF2062A71C0016596C /* AnimationMachine+Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BDE2062A71C0016596C /* AnimationMachine+Mutation.swift */; };
+		890B2BE12062A7350016596C /* AnimationMachine+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BE02062A7350016596C /* AnimationMachine+Transitions.swift */; };
+		890B2BE42062A7FD0016596C /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BE32062A7FD0016596C /* ViewState.swift */; };
+		890B2BE92062A85F0016596C /* AnimationStateBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */; };
+		890B2BEC2062A8A50016596C /* TestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BEB2062A8A50016596C /* TestState.swift */; };
 		89ACB37020520CAE004BB21C /* AnimState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89ACB36620520CAE004BB21C /* AnimState.framework */; };
 		89ACB37520520CAE004BB21C /* AnimStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB37420520CAE004BB21C /* AnimStateTests.swift */; };
 		89ACB37720520CAE004BB21C /* AnimState.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ACB36920520CAE004BB21C /* AnimState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		89ACB38120520CB7004BB21C /* AnimState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB38020520CB7004BB21C /* AnimState.swift */; };
-		89ACB3832052183B004BB21C /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB3822052183B004BB21C /* Graph.swift */; };
+		89ACB38120520CB7004BB21C /* AnimationMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB38020520CB7004BB21C /* AnimationMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,14 +33,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		890B2BD62062A63F0016596C /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
+		890B2BD82062A6580016596C /* AnimationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConfig.swift; sourceTree = "<group>"; };
+		890B2BDA2062A6700016596C /* AnimationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationNode.swift; sourceTree = "<group>"; };
+		890B2BDC2062A6830016596C /* AnimationStateBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStateBag.swift; sourceTree = "<group>"; };
+		890B2BDE2062A71C0016596C /* AnimationMachine+Mutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimationMachine+Mutation.swift"; sourceTree = "<group>"; };
+		890B2BE02062A7350016596C /* AnimationMachine+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimationMachine+Transitions.swift"; sourceTree = "<group>"; };
+		890B2BE32062A7FD0016596C /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStateBagTests.swift; sourceTree = "<group>"; };
+		890B2BEB2062A8A50016596C /* TestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestState.swift; sourceTree = "<group>"; };
 		89ACB36620520CAE004BB21C /* AnimState.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimState.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACB36920520CAE004BB21C /* AnimState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimState.h; sourceTree = "<group>"; };
 		89ACB36A20520CAE004BB21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89ACB36F20520CAE004BB21C /* AnimStateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimStateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACB37420520CAE004BB21C /* AnimStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimStateTests.swift; sourceTree = "<group>"; };
 		89ACB37620520CAE004BB21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89ACB38020520CB7004BB21C /* AnimState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimState.swift; sourceTree = "<group>"; };
-		89ACB3822052183B004BB21C /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		89ACB38020520CB7004BB21C /* AnimationMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		890B2BE22062A7EB0016596C /* public */ = {
+			isa = PBXGroup;
+			children = (
+				890B2BE32062A7FD0016596C /* ViewState.swift */,
+				890B2BD82062A6580016596C /* AnimationConfig.swift */,
+				89ACB38020520CB7004BB21C /* AnimationMachine.swift */,
+				890B2BE02062A7350016596C /* AnimationMachine+Transitions.swift */,
+				890B2BDE2062A71C0016596C /* AnimationMachine+Mutation.swift */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		890B2BE52062A8260016596C /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				890B2BD62062A63F0016596C /* AnimationItem.swift */,
+				890B2BDA2062A6700016596C /* AnimationNode.swift */,
+				890B2BDC2062A6830016596C /* AnimationStateBag.swift */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		890B2BE62062A83F0016596C /* internal+tests */ = {
+			isa = PBXGroup;
+			children = (
+				890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */,
+			);
+			path = "internal+tests";
+			sourceTree = "<group>";
+		};
+		890B2BE72062A8450016596C /* public+tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "public+tests";
+			sourceTree = "<group>";
+		};
+		890B2BEA2062A8930016596C /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				890B2BEB2062A8A50016596C /* TestState.swift */,
+			);
+			path = "Test Data";
+			sourceTree = "<group>";
+		};
 		89ACB35C20520CAE004BB21C = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +138,8 @@
 			children = (
 				89ACB36920520CAE004BB21C /* AnimState.h */,
 				89ACB36A20520CAE004BB21C /* Info.plist */,
-				89ACB38020520CB7004BB21C /* AnimState.swift */,
-				89ACB3822052183B004BB21C /* Graph.swift */,
+				890B2BE22062A7EB0016596C /* public */,
+				890B2BE52062A8260016596C /* internal */,
 			);
 			path = AnimState;
 			sourceTree = "<group>";
@@ -86,6 +147,9 @@
 		89ACB37320520CAE004BB21C /* AnimStateTests */ = {
 			isa = PBXGroup;
 			children = (
+				890B2BEA2062A8930016596C /* Test Data */,
+				890B2BE72062A8450016596C /* public+tests */,
+				890B2BE62062A83F0016596C /* internal+tests */,
 				89ACB37420520CAE004BB21C /* AnimStateTests.swift */,
 				89ACB37620520CAE004BB21C /* Info.plist */,
 			);
@@ -203,8 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89ACB3832052183B004BB21C /* Graph.swift in Sources */,
-				89ACB38120520CB7004BB21C /* AnimState.swift in Sources */,
+				890B2BDD2062A6830016596C /* AnimationStateBag.swift in Sources */,
+				890B2BDF2062A71C0016596C /* AnimationMachine+Mutation.swift in Sources */,
+				890B2BE12062A7350016596C /* AnimationMachine+Transitions.swift in Sources */,
+				890B2BDB2062A6700016596C /* AnimationNode.swift in Sources */,
+				89ACB38120520CB7004BB21C /* AnimationMachine.swift in Sources */,
+				890B2BD72062A63F0016596C /* AnimationItem.swift in Sources */,
+				890B2BE42062A7FD0016596C /* ViewState.swift in Sources */,
+				890B2BD92062A6580016596C /* AnimationConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +283,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				89ACB37520520CAE004BB21C /* AnimStateTests.swift in Sources */,
+				890B2BEC2062A8A50016596C /* TestState.swift in Sources */,
+				890B2BE92062A85F0016596C /* AnimationStateBagTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

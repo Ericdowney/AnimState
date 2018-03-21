@@ -22,38 +22,45 @@
                                 <rect key="frame" x="20" y="629" width="335" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLT-xl-Nsn">
-                                        <rect key="frame" x="0.0" y="0.0" width="52.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="30"/>
                                         <state key="normal" title="Red"/>
                                         <connections>
                                             <action selector="red" destination="BYZ-38-t0r" eventType="touchUpInside" id="LDm-is-9jF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eq-uT-1rP">
-                                        <rect key="frame" x="52.5" y="0.0" width="76.5" height="30"/>
+                                        <rect key="frame" x="43.5" y="0.0" width="64" height="30"/>
                                         <state key="normal" title="Yellow"/>
                                         <connections>
                                             <action selector="yellow" destination="BYZ-38-t0r" eventType="touchUpInside" id="8RT-Wh-oDQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHy-5h-9rT">
-                                        <rect key="frame" x="129" y="0.0" width="73.5" height="30"/>
+                                        <rect key="frame" x="107.5" y="0.0" width="60.5" height="30"/>
                                         <state key="normal" title="Green"/>
                                         <connections>
                                             <action selector="green" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4u-Vq-rJQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQj-6j-53B">
-                                        <rect key="frame" x="202.5" y="0.0" width="54" height="30"/>
+                                        <rect key="frame" x="168" y="0.0" width="45" height="30"/>
                                         <state key="normal" title="Blue"/>
                                         <connections>
                                             <action selector="blue" destination="BYZ-38-t0r" eventType="touchUpInside" id="ayx-vz-r27"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmU-qy-HKS">
-                                        <rect key="frame" x="256.5" y="0.0" width="78.5" height="30"/>
+                                        <rect key="frame" x="213" y="0.0" width="65.5" height="30"/>
                                         <state key="normal" title="Purple"/>
                                         <connections>
                                             <action selector="purple" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhb-Ec-kiG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIN-ke-C5U">
+                                        <rect key="frame" x="278.5" y="0.0" width="56.5" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="reset" destination="BYZ-38-t0r" eventType="touchUpInside" id="txq-ea-LBl"/>
                                         </connections>
                                     </button>
                                 </subviews>
