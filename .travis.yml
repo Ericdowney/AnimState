@@ -1,4 +1,5 @@
 language: swift
 os: osx
 osx_image: xcode9.2
+xcode_workspace: AnimStateSpace.xcworkspace
 xcode_scheme: AnimState
