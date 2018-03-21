@@ -16,6 +16,7 @@
 		890B2BE42062A7FD0016596C /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BE32062A7FD0016596C /* ViewState.swift */; };
 		890B2BE92062A85F0016596C /* AnimationStateBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */; };
 		890B2BEC2062A8A50016596C /* TestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BEB2062A8A50016596C /* TestState.swift */; };
+		890B2BEE2062C1600016596C /* AnimationNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B2BED2062C1600016596C /* AnimationNodeTests.swift */; };
 		89ACB37020520CAE004BB21C /* AnimState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89ACB36620520CAE004BB21C /* AnimState.framework */; };
 		89ACB37520520CAE004BB21C /* AnimStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACB37420520CAE004BB21C /* AnimStateTests.swift */; };
 		89ACB37720520CAE004BB21C /* AnimState.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ACB36920520CAE004BB21C /* AnimState.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +43,7 @@
 		890B2BE32062A7FD0016596C /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStateBagTests.swift; sourceTree = "<group>"; };
 		890B2BEB2062A8A50016596C /* TestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestState.swift; sourceTree = "<group>"; };
+		890B2BED2062C1600016596C /* AnimationNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationNodeTests.swift; sourceTree = "<group>"; };
 		89ACB36620520CAE004BB21C /* AnimState.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimState.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACB36920520CAE004BB21C /* AnimState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimState.h; sourceTree = "<group>"; };
 		89ACB36A20520CAE004BB21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		890B2BE62062A83F0016596C /* internal+tests */ = {
 			isa = PBXGroup;
 			children = (
+				890B2BED2062C1600016596C /* AnimationNodeTests.swift */,
 				890B2BE82062A85F0016596C /* AnimationStateBagTests.swift */,
 			);
 			path = "internal+tests";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890B2BEE2062C1600016596C /* AnimationNodeTests.swift in Sources */,
 				89ACB37520520CAE004BB21C /* AnimStateTests.swift in Sources */,
 				890B2BEC2062A8A50016596C /* TestState.swift in Sources */,
 				890B2BE92062A85F0016596C /* AnimationStateBagTests.swift in Sources */,

@@ -22,10 +22,6 @@ class AnimationStateBagTests: XCTestCase {
         }, chainItem: nil)), states: [:])
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func test_shouldAddNodeToStates() {
         let newState: TestState = .two
         var completed = false
